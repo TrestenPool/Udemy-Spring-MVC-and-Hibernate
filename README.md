@@ -12,8 +12,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 
 > [Controllers](#3.1)
 >> + [@RequestMapping annotation](#3.2)
->> + [Manipulating the model in the controller](#3.3)
-
+>> + [Accessing query parameters in the controller and view](#3.3)
 
 ---
 
@@ -158,7 +157,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 
 ---
 
-### Manipulating the model in the controller <a id='3.3'></a>
+### Accessing parameters in the controller and view <a id='3.3'></a>
 > In order to manipulate the model, we must first accept the request into the parameters of the request mapping for the route with `HttpServletRequest request`. And also take in the model with `Model model` in our case.
 
 > ```
@@ -182,5 +181,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >    ```
 
 > At the end of the controller function for the request we are just returning the "helloWorld" view without having to pass in the model explicitily, this is because spring will pass the model to the view automatically for us so we can just reference the model in the view with `${message}` or whatever we named the attribute in the controller method.
+
+> If we just wanted to access the parameter in the view without manipulating it in the controller, we can access the query parameter in the view by `${param.studentName}`
 
 ---
