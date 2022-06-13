@@ -11,7 +11,8 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [Docker Configuration](#2.3)
 
 > [Creating Controllers](#3.1)
->> [@RequestMapping annotation](#3.2)
+>> + [@RequestMapping annotation](#3.2)
+>> + [Manipulating the model in the controller](#3.3)
 
 
 ---
@@ -154,5 +155,32 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >>    }
 >>  }
 >>  ```
+
+---
+
+### Manipulating the model in the controller <a id='3.3'></a>
+> In order to manipulate the model, we must first accept the request into the parameters of the request mapping for the route with `HttpServletRequest request`. And also take in the model with `Model model` in our case.
+
+> ```
+>   @RequestMapping("/processFormVersionTwo")
+>    public String processFormTwo(HttpServletRequest request, Model model){
+>        // gets the parameter studentName from the request of the form
+>        String theName = request.getParameter("studentName");
+>
+>        // convert the name to all caps
+>        theName = theName.toUpperCase();
+>
+>        // create the message
+>        String result = "YO! " + theName;
+>
+>        // adds data to the model
+>        model.addAttribute("message", result);
+>
+>        // render the page, passes "message" with the value of result to the view
+>        return "helloWorld";
+>    }
+>    ```
+
+> At the end of the controller function for the request we are just returning the "helloWorld" view without having to pass in the model explicitily, this is because spring will pass the model to the view automatically for us so we can just reference the model in the view with `${message}` or whatever we named the attribute in the controller method.
 
 ---
