@@ -10,7 +10,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [Spring MVC Configuration in intellij](#2.2)
 >> + [Docker Configuration](#2.3)
 
-> [Creating Controllers](#3.1)
+> [Controllers](#3.1)
 >> + [@RequestMapping annotation](#3.2)
 >> + [Manipulating the model in the controller](#3.3)
 
