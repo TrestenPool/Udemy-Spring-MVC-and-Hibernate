@@ -160,6 +160,8 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 ### Accessing parameters in the controller and view <a id='3.3'></a>
 > In order to manipulate the model, we must first accept the request into the parameters of the request mapping for the route with `HttpServletRequest request`. And also take in the model with `Model model` in our case.
 
+> To get the query parameter in the model we have the method `request.getParameter()` with the name of the parameter in string format passed through as the argument.
+
 > ```
 >   @RequestMapping("/processFormVersionTwo")
 >    public String processFormTwo(HttpServletRequest request, Model model){
