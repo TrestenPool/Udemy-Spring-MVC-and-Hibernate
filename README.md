@@ -13,6 +13,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 > [Controllers](#3.1)
 >> + [@RequestMapping annotation](#3.2)
 >> + [Accessing query parameters in the controller and view](#3.3)
+>> + [Accessing the query parameters in the controller with @RequestParam](#3.4)
 
 ---
 
@@ -187,3 +188,12 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 > If we just wanted to access the parameter in the view without manipulating it in the controller, we can access the query parameter in the view by `${param.studentName}`
 
 ---
+
+### Accessing parameters in the controller with @RequestParam <a id='3.4'></a>
+> Instead of taking in the `HttpServletRequest request` argument in the method parameters and calling `request.getParameter()` to access the query parameter, we can instead use the annotation `@RequestParam()`.
+
+> ```
+>    // Using the @RequestParam instead
+>    @RequestMapping("/processFormVersionTwo")
+>    public String processFormTwo(@RequestParam("studentName") String theName, Model model){
+> ```
