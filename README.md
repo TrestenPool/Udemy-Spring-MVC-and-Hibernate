@@ -197,3 +197,10 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >    @RequestMapping("/processFormVersionTwo")
 >    public String processFormTwo(@RequestParam("studentName") String theName, Model model){
 > ```
+
+---
+
+### Nesting of @RequestMapping in the class to achieve url nesting <a id='3.5'></a>
+> if we wanted to create a url structure of everything a dog can do like eat, sleep, restroom. We can nest them under the /dog url to make it clean and organized. So in theory if we wanted for the dog to eat it would go to the url /dog/eat, and similiarily if you wanted the dog to sleep, you would go to the url /dog/sleep.
+
+> In order to achive this in spring we would create a class called DogController, and at the beginning of defining the class we would put the `@RequestMapping("/dog")`.
