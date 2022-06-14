@@ -206,4 +206,20 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 
 > In order to achive this in spring we would create a class called DogController, and at the beginning of defining the class we would put the `@RequestMapping("/dog")` and each of the methods describing eat, sleep and restroom with the corresponding mapping like `@RequestMapping("/eat")`, etc..
 
+> ```
+> @Controller
+> @RequestMapping("/dog")
+> public classs Dog {
+> 
+>  @RequestMapping("/eat")
+>  public void dogEating() {
+>   // dog will eat here
+>  }
+>
+>  @RequestMapping("/sleep")
+>  public void dogSleep() {
+>   // dog will sleep here
+>  }
+>  
+> }
 ---
