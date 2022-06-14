@@ -15,6 +15,9 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [Accessing query parameters in the controller and view](#3.3)
 >> + [Accessing the query parameters in the controller with @RequestParam](#3.4)
 >> + [Nesting of @RequestMapping in the class to achieve URL Nesting](#3.5)
+
+> [Spring MVC Form Tags](#4.1)
+>> + [Overview](#4.2)
  
 ---
 
@@ -222,4 +225,26 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >  }
 >  
 > }
+
+---
+
+## Spring MVC Form Tags <a id='4.1'></a>
+
+### Overview <a id='4.2'></a>
+> Spring MVC form tags will generate **HTML** for you.
+
+> | Form Tag      | Description                | 
+> | ------------- |:--------------------------:|
+> | form:form     | main form container        |
+> | form:input    | text field                 |
+> | form:textarea | multi-line text field      |
+> | form:checkbox | check box                  |
+> | form:radiobutton | radio buttons           |
+> | form:select   | drop down list             |
+
+> And much much more... https://docs.spring.io/spring-framework/docs/5.0.2.RELEASE/spring-framework-reference/web.html#mvc-view-jsp-tags
+
+> How does it work??<br/>
+> It just works by using regular html in your view pages and dropping in one of the mvc form tags to generate the html for us.
+
 ---
