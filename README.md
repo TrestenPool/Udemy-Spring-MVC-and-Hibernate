@@ -14,7 +14,8 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [@RequestMapping annotation](#3.2)
 >> + [Accessing query parameters in the controller and view](#3.3)
 >> + [Accessing the query parameters in the controller with @RequestParam](#3.4)
-
+>> + [Nesting of @RequestMapping in the class to achieve URL Nesting](#3.5)
+ 
 ---
 
 ### MVC Overview and Configuration <a id='1.1'></a>
@@ -203,4 +204,6 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 ### Nesting of @RequestMapping in the class to achieve url nesting <a id='3.5'></a>
 > if we wanted to create a url structure of everything a dog can do like eat, sleep, restroom. We can nest them under the /dog url to make it clean and organized. So in theory if we wanted for the dog to eat it would go to the url /dog/eat, and similiarily if you wanted the dog to sleep, you would go to the url /dog/sleep.
 
-> In order to achive this in spring we would create a class called DogController, and at the beginning of defining the class we would put the `@RequestMapping("/dog")`.
+> In order to achive this in spring we would create a class called DogController, and at the beginning of defining the class we would put the `@RequestMapping("/dog")` and each of the methods describing eat, sleep and restroom with the corresponding mapping like `@RequestMapping("/eat")`, etc..
+
+---
