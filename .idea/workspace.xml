@@ -7,7 +7,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8ad2f70-0976-4f6a-8a1a-ecb8895266bd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/annotations_api.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/helloWorld.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/main-menu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/spring_mvc_demo_Web_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/spring_mvc_demo_Web_exploded.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_mvc_demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/spring_mvc_demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spring_mvc_demo/SpringApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spring_mvc_demo/SpringApp.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/spring-mvc-demo-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/spring-mvc-demo-servlet.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/views/blank-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/views/process.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/views/processed-form.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -28,7 +38,7 @@
   <component name="HighlightingSettingsPerFile">
     <setting file="file://$PROJECT_DIR$/src/spring_mvc_demo/SpringApp.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/web/WEB-INF/spring-mvc-demo-servlet.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/web/WEB-INF/views/index.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/web/WEB-INF/views/blank-form.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/web/WEB-INF/web.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -46,12 +56,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/home/tpool/Playground/Udemy/Spring/Git_Notes/spring_mvc_demo",
+    "last_opened_file_path": "/usr/share/tomcat9/lib/websocket-api.jar",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Libraries",
+    "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
+    "settings.editor.selected.configurable": "IntelliLang.Configuration",
     "spring.configuration.checksum": "52b3fc4c3b5a511a5f84d2cd028f9e02"
   }
 }]]></component>
@@ -95,11 +105,20 @@
       <option name="presentableId" value="Default" />
       <updated>1654445134162</updated>
       <workItem from="1654445135462" duration="9791000" />
-      <workItem from="1654474765722" duration="3528000" />
+      <workItem from="1654474765722" duration="11481000" />
+      <workItem from="1655137491690" duration="2121000" />
+      <workItem from="1655139628014" duration="377000" />
+      <workItem from="1655140019878" duration="37000" />
+      <workItem from="1655140070444" duration="179000" />
+      <workItem from="1655140263202" duration="7949000" />
     </task>
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
