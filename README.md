@@ -15,6 +15,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [Accessing query parameters in the controller and view](#3.3)
 >> + [Accessing the query parameters in the controller with @RequestParam](#3.4)
 >> + [Nesting of @RequestMapping in the class to achieve URL Nesting](#3.5)
+>> + [Data Binding to models](#3.6)
 
 > [Spring MVC Form Tags](#4.1)
 >> + [Overview](#4.2)
@@ -225,6 +226,70 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >  }
 >  
 > }
+
+---
+
+### Data binding to models<a id='3.6'></a>
+> Our goal is to bind the data that is inputted into our basic forms and pass them to the controllers so they can manipulate them. The goal is to have spring do this for us with as little code.
+
+> **First Step:** <br>
+> In the controller method for displaying the form we are going to take the `Model` object through as an argument and add the attribute of type **Student**. In this case we are naming the attribute `student`. <br>
+> ```
+>    @RequestMapping("/showForm")
+>    public String showForm(Model model) {
+>
+>        model.addAttribute("student", new Student());
+>
+>        return "student-form";
+>    }
+> ```
+
+> **Second Step:** <br>
+> In the second step we are going to use a **spring mvc form tag** `<form:form action="processFormVersionFour" modelAttribute="student"` to **Bind** the attribute **"student"** to the form when the user submitts it. <br>
+> When the user hits submit, spring will automatically call the **setter methods** and set the properties for the object.
+
+> ```
+> <body>
+>
+>    <!-- Form -->
+>    <form:form action="processFormVersionFour" modelAttribute="student">
+>        <!-- first name field -->
+>        First name: <form:input path="firstName"/>
+>        <br><br>
+>
+>        <!-- last name field -->
+>        Last name: <form:input path="lastName"/>
+>        <br><br>
+>
+>        <input type="submit" value="submit"/>
+>    </form:form>
+>
+> </body>
+> ```
+
+> **Third Step:** <br>
+> In the previous step the **student** attribute was binded to the form, so that way when the user submits the form spring has already created an object of type **Student** and is binded to the Model object so that way the the processing form request controller method has everything it needs already, no need to manipluate the request argument anymore.. All we need to do is use **`@ModelAttribute`** to tell Spring that it expects the **student** attribute to be added to the model already <br>
+> ```
+>    @RequestMapping("/processFormVersionFour")
+>    public String processFormVersionFour(@ModelAttribute("student") Student student){
+>        System.out.println(student.getFirstName() + " is the best!!!!");
+>
+>        return "helloWorld";
+>    }
+> ```
+
+> **Fourth (Final) Step:** <br>
+> In the final step we can access the model attributes just like normal with the `${student.firstName}` format... <br>
+> ```
+> <body>
+>     <p>
+>        Hello world of spring!
+>     </p>
+>     <p>
+>         The message: ${student.firstName}
+>     </p>
+> </body>
+> ```
 
 ---
 
