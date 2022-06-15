@@ -19,6 +19,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 
 > [Spring MVC Form Tags](#4.1)
 >> + [Overview](#4.2)
+>> + [Drop Down lists](#4.3)
  
 ---
 
@@ -313,3 +314,28 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 > It just works by using regular html in your view pages and dropping in one of the mvc form tags to generate the html for us.
 
 ---
+
+### Drop Down lists <a id='4.3'></a>
+> A typical drop down menu in html would look something like this <br>
+> ```
+> <select name="country">
+>   <option>Brazil</option>
+>   <option>Canada</option>
+>   <option>Denmark</option>
+>   <option>Egypt</option>
+>   ...
+> </select>
+> ```
+
+> With the Spring MVC Tag, all you need is the `<form:select>` tag. <br>
+> ```
+> <form:select path="country">
+>   <form:option value="Brazil" label="Brazil" />
+>   <form:option value="Canada" label="Canada" />
+>   <form:option value="Denmark" label="Denmark" />
+>   <form:option value="Egypt" label="Egypt" />
+> </form:select>
+> ```
+
+---
+
