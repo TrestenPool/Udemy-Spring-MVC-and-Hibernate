@@ -13,6 +13,11 @@
 <body>
     <h1>Main Menu</h1>
 
-  <a href="showForm">Link to the form</a>
+    <a href="hello/showForm">Link to Hello form</a>
+
+    <br>
+
+    <a href="student/showForm">Link to the Student forms</a>
+
 </body>
 </html>

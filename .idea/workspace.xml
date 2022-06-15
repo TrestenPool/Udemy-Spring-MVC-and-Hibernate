@@ -7,17 +7,19 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8ad2f70-0976-4f6a-8a1a-ecb8895266bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/annotations_api.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/helloWorld.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/main-menu.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/spring_mvc_demo_Web_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/spring_mvc_demo_Web_exploded.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/webContexts.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/webContexts.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/spring_mvc_demo/driver/SpringApp.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/spring_mvc_demo/driver/StudentForms.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/spring_mvc_demo/models/Student.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/hello_blankForm.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/hello_processedForm.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/student_blankForm.jsp" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring_mvc_demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/spring_mvc_demo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spring_mvc_demo/SpringApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spring_mvc_demo/SpringApp.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/spring-mvc-demo-servlet.xml" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/spring-mvc-demo-servlet.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/views/index.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/views/blank-form.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/views/process.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/views/processed-form.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spring_mvc_demo/SpringApp.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spring_mvc_demo/driver/HelloForms.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/views/blank-form.jsp" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/views/helloWorld.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/views/helloWorld.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/views/main-menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/views/main-menu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/views/processed-form.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/views/student_processedForm.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,9 +38,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="HighlightingSettingsPerFile">
-    <setting file="file://$PROJECT_DIR$/src/spring_mvc_demo/SpringApp.java" root0="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/src/spring_mvc_demo/driver/HelloForms.java" root0="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/web/WEB-INF/spring-mvc-demo-servlet.xml" root0="FORCE_HIGHLIGHTING" />
-    <setting file="file://$PROJECT_DIR$/web/WEB-INF/views/blank-form.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
+    <setting file="file://$PROJECT_DIR$/web/WEB-INF/views/student_blankForm.jsp" root0="FORCE_HIGHLIGHTING" root1="FORCE_HIGHLIGHTING" root2="FORCE_HIGHLIGHTING" />
     <setting file="file://$PROJECT_DIR$/web/WEB-INF/web.xml" root0="FORCE_HIGHLIGHTING" />
   </component>
   <component name="MarkdownSettingsMigration">
@@ -77,12 +79,12 @@
     </key>
   </component>
   <component name="RunManager" selected="Docker.new_tomcat">
-    <configuration name="SpringApp" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="spring_mvc_demo.SpringApp" />
+    <configuration name="HelloForms" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="spring_mvc_demo.driver.HelloForms" />
       <module name="spring_mvc_demo" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="spring_mvc_demo.*" />
+          <option name="PATTERN" value="spring_mvc_demo.driver.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
@@ -92,7 +94,7 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.SpringApp" />
+        <item itemvalue="Application.HelloForms" />
       </list>
     </recent_temporary>
   </component>
@@ -110,7 +112,7 @@
       <workItem from="1655139628014" duration="377000" />
       <workItem from="1655140019878" duration="37000" />
       <workItem from="1655140070444" duration="179000" />
-      <workItem from="1655140263202" duration="7949000" />
+      <workItem from="1655140263202" duration="23395000" />
     </task>
     <servers />
   </component>
