@@ -26,10 +26,17 @@
         <!-- country field -->
         Country:
         <form:select path="country" >
-            <form:options items="${student.countryOptions}"/>
+            <form:options items="${student.countryOptions}"/>  <!-- Calls the getter method for countryOptions -->
        </form:select>
 
+        <br>
+        <br>
 
+        <!-- Radio button selection for the programming language -->
+        Java: <form:radiobutton path="favoriteLanguage" value="Java"/> <br>
+        C: <form:radiobutton path="favoriteLanguage" value="C"/><br>
+        Python: <form:radiobutton path="favoriteLanguage" value="Python"/><br>
+        Typescript: <form:radiobutton path="favoriteLanguage" value="Typescript"/><br>
 
         <input type="submit" value="submit"/>
     </form:form>

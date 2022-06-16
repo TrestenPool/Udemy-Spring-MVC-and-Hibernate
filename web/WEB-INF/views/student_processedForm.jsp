@@ -15,5 +15,7 @@
     The student ${student.firstName} ${student.lastName} has been processed...
     <br>
     The student is from ${student.country}
+    <br>
+    The student programming language of choice is ${student.favoriteLanguage}
 </body>
 </html>
