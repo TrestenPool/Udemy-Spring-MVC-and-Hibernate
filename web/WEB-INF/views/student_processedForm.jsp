@@ -1,3 +1,5 @@
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <%--
   Created by IntelliJ IDEA.
   User: tpool
@@ -17,5 +19,13 @@
     The student is from ${student.country}
     <br>
     The student programming language of choice is ${student.favoriteLanguage}
+
+    <br><br>
+    Operating Systems Experience:
+    <ul>
+        <c:forEach var="temp" items="${student.operatingSystems}">
+            <li>${temp}</li>
+        </c:forEach>
+    </ul>
 </body>
 </html>

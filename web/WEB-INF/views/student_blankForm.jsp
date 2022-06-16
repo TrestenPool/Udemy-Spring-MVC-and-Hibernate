@@ -38,6 +38,11 @@
         Python: <form:radiobutton path="favoriteLanguage" value="Python"/><br>
         Typescript: <form:radiobutton path="favoriteLanguage" value="Typescript"/><br>
 
+        <!-- OS experience selected -->
+        Linux:   <form:checkbox path="operatingSystems" value="Linux"  />
+        Mac:     <form:checkbox path="operatingSystems" value="Mac" />
+        Windows: <form:checkbox path="operatingSystems" value="Windows" />
+
         <input type="submit" value="submit"/>
     </form:form>
 
