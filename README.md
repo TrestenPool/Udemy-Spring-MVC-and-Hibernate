@@ -20,6 +20,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 > [Spring MVC Form Tags](#4.1)
 >> + [Overview](#4.2)
 >> + [Drop Down lists](#4.3)
+>> + [Radio Buttons](#4.4)
  
 ---
 
@@ -344,5 +345,18 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >  <form:options items="${student.countryOptions}"/>
 > </form:select>
 > ```
+
+---
+
+### Drop Down lists <a id='4.4'></a>
+> Simple implementation of using radio buttons with spring mvc tags.
+>
+> ```
+>  <!-- Radio button selection for the programming language -->
+>  Java: <form:radiobutton path="favoriteLanguage" value="Java"/> <br>
+>  C: <form:radiobutton path="favoriteLanguage" value="C"/><br>
+>  Python: <form:radiobutton path="favoriteLanguage" value="Python"/><br>
+>  Typescript: <form:radiobutton path="favoriteLanguage" value="Typescript"/><br>
+>  ```
 
 ---
