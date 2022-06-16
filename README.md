@@ -21,6 +21,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [Overview](#4.2)
 >> + [Drop Down lists](#4.3)
 >> + [Radio Buttons](#4.4)
+>> + [Checkboxes](#4.5)
  
 ---
 
@@ -358,5 +359,27 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >  Python: <form:radiobutton path="favoriteLanguage" value="Python"/><br>
 >  Typescript: <form:radiobutton path="favoriteLanguage" value="Typescript"/><br>
 >  ```
+
+---
+
+### Checkboxes <a id='4.5'></a>
+> The `<form:checkbox>` tag is used to define checkboxes. <br>
+> In this example we are defining **operatingSystems** as a String[] in the Student class.
+> ```
+>   <!-- OS experience selected -->
+>   Linux:   <form:checkbox path="operatingSystems" value="Linux"  />
+>   Mac:     <form:checkbox path="operatingSystems" value="Mac" />
+>   Windows: <form:checkbox path="operatingSystems" value="Windows" />
+>```
+>
+> To loop over the checkboxes that were selected in the processed form we need to use the tag library `<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>`. After importing the required library we can loop over the iterable variable operatingSystems with the following code in processed form file.
+> ```
+>    Operating Systems Experience:
+>    <ul>
+>        <c:forEach var="temp" items="${student.operatingSystems}">
+>            <li>${temp}</li>
+>        </c:forEach>
+>    </ul>
+> ```
 
 ---
