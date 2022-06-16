@@ -22,6 +22,9 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [Drop Down lists](#4.3)
 >> + [Radio Buttons](#4.4)
 >> + [Checkboxes](#4.5)
+
+> [Spring MVC Validation](#5.1)
+>> + [Overview and Setup](#5.2)
  
 ---
 
@@ -381,5 +384,36 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >        </c:forEach>
 >    </ul>
 > ```
+
+---
+
+## Spring MVC Form Validation <a id='5.1'></a>
+
+### Overview and Setup <a id='5.2'></a>
+> + Spring version 4 and higher supports the **Bean Validation API**.
+> + It is the preferred method for validation when building spring apps.
+> + Simply add **Validation JAR's** to the project
+
+> Examples of some **Validation Annotations**
+>> | Annotation    | Description           |
+>> | ------------- | --------------------- |
+>> | @NotNull                | Checks that the annotated value is not null |
+>> | @Min                    | Must be a number >= value                   |
+>> | @Max                    | Must be a number <= value                   |
+>> | @Size                   | Size must match the given size              |
+>> | @Pattern                | Must match a regular expression pattern     |
+>> | @Future / @Past         | Data must be in future or past of given date|
+
+> **Setup:**
+> + Hibernate has a fully compliant implementation of validation that is not tied to the ORM or database work they also have, it is a separate proect. We will use Hibernate validator version **7**
+> + https://hibernate.org/validator/
+> + Hibernate validator 7 is based on **Jakarta EE9**. Jakarta EE is the community version of Java EE (rebranded, relicensed). Jakarta EE does **NOT** replace Java EE. 
+> + At the moment, the main difference with Java EE and Jakarta EE is that Jakarta EE has changed the package names from `javax.*` to `jakarta.*`.
+> + https://jakarta.ee/about
+>
+> So what is the big deal??
+> + Hibernate validator 7 is based on Jakarta EE 9.
+> + ...
+
 
 ---
