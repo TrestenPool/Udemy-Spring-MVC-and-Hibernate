@@ -13,5 +13,7 @@
 <body>
     <h2>Process Form</h2>
     The student ${student.firstName} ${student.lastName} has been processed...
+    <br>
+    The student is from ${student.country}
 </body>
 </html>
