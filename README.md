@@ -327,7 +327,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 > </select>
 > ```
 
-> With the Spring MVC Tag, all you need is the `<form:select>` tag. <br>
+> With the Spring MVC Tag, all you need is the `<form:select>` tag. We can input all the options manually like this... <br>
 > ```
 > <form:select path="country">
 >   <form:option value="Brazil" label="Brazil" />
@@ -335,7 +335,14 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >   <form:option value="Denmark" label="Denmark" />
 >   <form:option value="Egypt" label="Egypt" />
 > </form:select>
+> ``` 
+>
+> Or we can instead have spring input all the options for us like this.
+> 
+> ```
+> <form:select path="country">
+>  <form:options items="${student.countryOptions}"/>
+> </form:select>
 > ```
 
 ---
-
