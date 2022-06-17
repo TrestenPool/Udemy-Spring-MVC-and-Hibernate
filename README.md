@@ -413,7 +413,16 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >
 > So what is the big deal??
 > + Hibernate validator 7 is based on Jakarta EE 9.
-> + ...
+> + Spring 5 is still based on some componenets of Java EE (javax.*) ...
+> + As a result, Spring 5 is not compatible with Hibernate Validator 7
+> + So what does that mean for us? How are we going to use the latest version of Hibernate 7
+>> We are just going to have to use **Hibernate Validator 6.2** because it is the most recent version that is compatible with Spring 5.
+> https://in.relation.to/hibernate-validator
 
+> Hibernate Validator docs: https://docs.jboss.org/hibernate/validator/6.2/reference/en-US/html_single/
 
+> Steps to Get started
+> 1. Download jar files of hibernate 6.2 from https://hibernate.org/validator/releases/6.2/
+> 2. Copied the three files in the dist directory and the ones in the lib>required to my lib directory in the project
+> 3. In my module settings for the project, set them as library files to reference in my project.
 ---
