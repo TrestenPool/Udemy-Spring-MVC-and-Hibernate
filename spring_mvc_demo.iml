@@ -114,5 +114,7 @@
     </orderEntry>
     <orderEntry type="library" exported="" name="javax.servlet.jsp.jstl-1.2.1" level="project" />
     <orderEntry type="library" exported="" name="annotations-api" level="project" />
+    <orderEntry type="library" name="hibernate-validator-6.2.3.Final" level="project" />
+    <orderEntry type="library" name="classmate-1.5.1" level="project" />
   </component>
 </module>

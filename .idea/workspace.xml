@@ -7,10 +7,23 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8ad2f70-0976-4f6a-8a1a-ecb8895266bd" name="Changes" comment="">
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/classmate_1_5_1.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/libraries/hibernate_validator_6_2_3_Final.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/classmate-1.5.1.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/hibernate-validator-6.2.3.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/hibernate-validator-annotation-processor-6.2.3.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/hibernate-validator-cdi-6.2.3.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jakarta.el-3.0.3.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jakarta.validation-api-2.0.2.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/lib/jboss-logging-3.4.1.Final.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/spring_mvc_demo/driver/CustomerForms.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/spring_mvc_demo/models/Customer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/customer_blankForm.jsp" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/customer_processedForm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/artifacts/spring_mvc_demo_Web_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/spring_mvc_demo_Web_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/spring_mvc_demo/models/Student.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spring_mvc_demo/models/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/views/student_blankForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/views/student_blankForm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/views/student_processedForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/views/student_processedForm.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/spring_mvc_demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/spring_mvc_demo.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/views/main-menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/views/main-menu.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,19 +62,19 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "SHARE_PROJECT_CONFIGURATION_FILES": "true",
     "WebServerToolWindowFactoryState": "false",
-    "last_opened_file_path": "/usr/share/tomcat9/lib/websocket-api.jar",
+    "last_opened_file_path": "/home/tpool/Playground/Udemy/Spring/Git_Notes/spring_mvc_demo/lib/spring-websocket-5.3.8.jar",
     "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Modules",
+    "project.structure.last.edited": "Artifacts",
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.2",
-    "settings.editor.selected.configurable": "com.maddyhome.idea.vim.ui.VimEmulationConfigurable",
+    "settings.editor.selected.configurable": "configurable.group.editor",
     "spring.configuration.checksum": "52b3fc4c3b5a511a5f84d2cd028f9e02"
   }
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
-      <recent name="$PROJECT_DIR$/web/WEB-INF" />
       <recent name="$PROJECT_DIR$/lib" />
+      <recent name="$PROJECT_DIR$/web/WEB-INF" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/web/WEB-INF/views" />
@@ -104,7 +117,9 @@
       <workItem from="1655140019878" duration="37000" />
       <workItem from="1655140070444" duration="179000" />
       <workItem from="1655140263202" duration="27789000" />
-      <workItem from="1655397454951" duration="4574000" />
+      <workItem from="1655397454951" duration="13034000" />
+      <workItem from="1655486131492" duration="6436000" />
+      <workItem from="1655645497937" duration="6081000" />
     </task>
     <servers />
   </component>

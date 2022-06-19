@@ -2,7 +2,6 @@
   <artifact type="exploded-war" name="spring_mvc_demo:Web exploded">
     <output-path>$PROJECT_DIR$/out/artifacts/spring_mvc_demo_Web_exploded</output-path>
     <root id="root">
-      <element id="javaee-facet-resources" facet="spring_mvc_demo/web/Web" />
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
           <element id="module-output" name="spring_mvc_demo" />
@@ -33,8 +32,11 @@
           <element id="file-copy" path="$PROJECT_DIR$/lib/spring-webflux-5.3.8.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/lib/spring-webmvc-5.3.8.jar" />
           <element id="file-copy" path="$PROJECT_DIR$/lib/spring-websocket-5.3.8.jar" />
+          <element id="library" level="project" name="classmate-1.5.1" />
+          <element id="library" level="project" name="hibernate-validator-6.2.3.Final" />
         </element>
       </element>
+      <element id="javaee-facet-resources" facet="spring_mvc_demo/web/Web" />
     </root>
   </artifact>
 </component>
