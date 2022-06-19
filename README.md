@@ -22,6 +22,13 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [Drop Down lists](#4.3)
 >> + [Radio Buttons](#4.4)
 >> + [Checkboxes](#4.5)
+
+> [Spring MVC Validation](#5.1)
+>> + [Overview and Setup](#5.2)
+>> + [Simple Validation](#5.3)
+>> + [@InitBinder annotation (Pre-Processor)](#5.4)
+>> + [Validating number ranges (@Min and @Max)](#5.5)
+>> + [Validating with regular expressions](#5.7)
  
 ---
 
@@ -381,5 +388,201 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >        </c:forEach>
 >    </ul>
 > ```
+
+---
+
+## Spring MVC Form Validation <a id='5.1'></a>
+
+### Overview and Setup <a id='5.2'></a>
+> + Spring version 4 and higher supports the **Bean Validation API**.
+> + It is the preferred method for validation when building spring apps.
+> + Simply add **Validation JAR's** to the project
+
+> Examples of some **Validation Annotations**
+>> | Annotation    | Description           |
+>> | ------------- | --------------------- |
+>> | @NotNull                | Checks that the annotated value is not null |
+>> | @Min                    | Must be a number >= value                   |
+>> | @Max                    | Must be a number <= value                   |
+>> | @Size                   | Size must match the given size              |
+>> | @Pattern                | Must match a regular expression pattern     |
+>> | @Future / @Past         | Data must be in future or past of given date|
+
+> **Setup:**
+> + Hibernate has a fully compliant implementation of validation that is not tied to the ORM or database work they also have, it is a separate proect. We will use Hibernate validator version **7**
+> + https://hibernate.org/validator/
+> + Hibernate validator 7 is based on **Jakarta EE9**. Jakarta EE is the community version of Java EE (rebranded, relicensed). Jakarta EE does **NOT** replace Java EE. 
+> + At the moment, the main difference with Java EE and Jakarta EE is that Jakarta EE has changed the package names from `javax.*` to `jakarta.*`.
+> + https://jakarta.ee/about
+>
+> So what is the big deal??
+> + Hibernate validator 7 is based on Jakarta EE 9.
+> + Spring 5 is still based on some componenets of Java EE (javax.*) ...
+> + As a result, Spring 5 is not compatible with Hibernate Validator 7
+> + So what does that mean for us? How are we going to use the latest version of Hibernate 7
+>> We are just going to have to use **Hibernate Validator 6.2** because it is the most recent version that is compatible with Spring 5.
+> https://in.relation.to/hibernate-validator
+
+> Hibernate Validator docs: https://docs.jboss.org/hibernate/validator/6.2/reference/en-US/html_single/
+
+> Steps to Get started
+> 1. Download jar files of hibernate 6.2 from https://hibernate.org/validator/releases/6.2/
+> 2. Copied the three files in the dist directory and the ones in the lib>required to my lib directory in the project
+> 3. In my module settings for the project, set them as library files to reference in my project.
+> 4. Update the lib directory with the jar files we added under WEB-INF in artifacts under the project module settings. 
+
+---
+
+### Simple Validation <a id='5.3'></a>
+> To add validation rules to properties of a model you can follow these steps.
+>
+> **STEP 1:** <br>
+> + Add constraints to the field property in the target object class.
+> ```
+> import javax.validation.constraints.NotNull;
+> import javax.validation.constraints.Size;
+>
+> public class Customer {
+>  private String firstName;
+>  
+> @NotNull(message = "is required")
+> @Size(min = 1, message = "is required")
+> private String lastName;
+> ...
+> ```
+> 
+> **STEP 2:** <br>
+> + In the view, add the `<form:errors>` tag where the **path** attribute is the property in the model we are validating, and **cssClass** is the css class we will apply to the error if it gets displayed.
+> ```
+> <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+> <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+> <html>
+> <head>
+> 
+>     <title>Customer Blank Form</title>
+> 
+>     <style>
+>         .error {
+>             color:red;
+>         }
+>     </style>
+> 
+> </head>
+> <body>
+>     <h1>Customer Blank Form</h1>
+>  <form:form action="processForm" modelAttribute="customer">
+>       First name: <form:input path="firstName" />
+> 
+>       <br><br>
+> 
+>       Last name (*): <form:input path="lastName" />
+>       <form:errors path="lastName" cssClass="error"/>
+> 
+>       <br><br>
+> 
+>       <input type="submit" value="Submit"/>
+>   </form:form>
+> </body>
+> </html>
+> ```
+>
+> **STEP 3:** <br>
+> + In the controller method that is processing the form must have the following structure. 
+> + It will make use of the **@Valid** annotation to tell hibernate to validate it for us.
+> + The **BindingResult** object must be taken **AFTER the @ModelAttribute** in the arguments. Otherwise it will not work as expected. 
+> ```
+>    @RequestMapping("/processForm")
+>    public String processForm(
+>            @Valid @ModelAttribute("customer") Customer customer,
+>            BindingResult bindingResult) {
+>
+>        // check if the validator has any errors
+>        if(bindingResult.hasErrors()){
+>            return "customer_blankForm";
+>        }
+>        else{
+>            // print out logging message
+>            System.out.printf("The customer %s %s is getting processed\n", customer.getFirstName(), >customer.getLastName());
+>
+>            // redirect customer to the processed form
+>            return "customer_processedForm" ;
+>        }
+>    }
+> ```
+
+---
+
+### @InitBinder annotation <a id='5.4'></a>
+> + **@InitBinder** annotation works as a pre-processor
+> + It will pre-process each web request to our controller
+> + We are going to use this annotation to trim strings.
+>> + We will use it to remove leading and trailing whitespace in our previous example of validation because as is, it will accept if the user just entered in just spaces for the last name.
+>> + If the string only has whitespaces, we will trim it to **null**
+>
+> **Registering our @InitBinder method in the controller class**
+> ```
+>    @InitBinder
+>    public void initBinder(WebDataBinder dataBinder){
+>
+>        // object that will trim strings
+>        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+>
+>        // adding the string trimmer to manipulate the incoming request
+>        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
+>    }
+> ```
+
+---
+
+### Validating number ranges (@Min and @Max) <a id='5.5'></a>
+> We are going to try to validate the number that the user enters on a form we display. The form is going to accept any input from the user but we want spring to validate to make sure a number was passed and also that it is between 0 and 10.
+>
+> **STEP 1:** <br>
+> + Add the constraints to the Customer model class.
+> ```
+>import javax.validation.constraints.Max;
+>import javax.validation.constraints.Min;
+>
+>public class Customer {
+>    private String firstName;
+>
+>    @Min(value = 0, message = "Must be greater than or equal to zero")
+>    @Max(value = 10, message = "Must be less than or equal to 10")
+>    private int freePasses;
+>    ...
+> ```
+> 
+> **STEP 2:** <br>
+> + Add the `<form:errors>` tag to the form.
+> ```
+>       Number of free forms (must be between 0 and 10) <form:input path="freePasses"/>
+>       <form:errors path="freePasses" cssClass="error"/>
+> ```
+>
+> **STEP 3** <br>
+> + Use the `@Valid` annotation in the controller method for the route and also `BindingResult`.
+> ```
+>    @RequestMapping("/processForm")
+>    public String processForm(
+>            @Valid @ModelAttribute("customer") Customer customer,
+>            BindingResult bindingResult) {
+> ```
+
+---
+
+### Validating with regular expressions with @Pattern <a id='5.6'></a>
+> We can validate with regular expressions with the `@Pattern` annotation.
+>
+> **Adding the constraint in the Customer model class:** <br>
+> + Add the regular expression constraint to the property in the Customer model class.
+> ```
+> public class Customer {
+>    private String firstName;
+>
+>    @Pattern(regexp = "[a-zA-z0-9]{5}", message = "only 5 chars/digits")
+>    private  String postalCode;
+>    ...
+> ```
+
 
 ---
