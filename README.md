@@ -27,6 +27,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [Overview and Setup](#5.2)
 >> + [Simple Validation](#5.3)
 >> + [@InitBinder annotation (Pre-Processor)](#5.4)
+>> + [Validating number ranges](#5.5)
  
 ---
 
@@ -528,6 +529,33 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >        // adding the string trimmer to manipulate the incoming request
 >        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 >    }
+> ```
+
+---
+
+### Validating number ranges <a id='5.5'></a>
+> We are going to try to validate the number that the user enters on a form we display. The form is going to accept any input from the user but we want spring to validate to make sure a number was passed and also that it is between 0 and 10.
+>
+> **STEP 1:** <br>
+> + Add the constraints to the Customer model class.
+> ```
+>import javax.validation.constraints.Max;
+>import javax.validation.constraints.Min;
+>
+>public class Customer {
+>    private String firstName;
+>
+>    @Min(value = 0, message = "Must be greater than or equal to zero")
+>    @Max(value = 10, message = "Must be less than or equal to 10")
+>    private int freePasses;
+>    ...
+> ```
+> 
+> **STEP 2:** <br>
+> + Add the `<form:errors>` tag to the form.
+> ```
+>       Number of free forms (must be between 0 and 10) <form:input path="freePasses"/>
+>       <form:errors path="freePasses" cssClass="error"/>
 > ```
 
 ---
