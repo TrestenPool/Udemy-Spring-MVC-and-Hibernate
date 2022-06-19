@@ -28,7 +28,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [Simple Validation](#5.3)
 >> + [@InitBinder annotation (Pre-Processor)](#5.4)
 >> + [Validating number ranges (@Min and @Max)](#5.5)
->> + [Validating with regular expressions](#5.7)
+>> + [Validating with regular expressions](#5.6)
  
 ---
 
