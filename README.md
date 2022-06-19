@@ -26,6 +26,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 > [Spring MVC Validation](#5.1)
 >> + [Overview and Setup](#5.2)
 >> + [Simple Validation](#5.3)
+>> + [@InitBinder annotation](#5.4)
  
 ---
 
@@ -504,6 +505,28 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >            // redirect customer to the processed form
 >            return "customer_processedForm" ;
 >        }
+>    }
+> ```
+
+---
+
+### @InitBinder annotation <a id='5.4'></a>
+> + **@InitBinder** annotation works as a pre-processor
+> + It will pre-process each web request to our controller
+> + We are going to use this annotation to trim strings.
+>> + We will use it to remove leading and trailing whitespace in our previous example of validation because as is, it will accept if the user just entered in just spaces for the last name.
+>> + If the string only has whitespaces, we will trim it to **null**
+>
+> **Registering our @InitBinder method in the controller class**
+> ```
+>    @InitBinder
+>    public void initBinder(WebDataBinder dataBinder){
+>
+>        // object that will trim strings
+>        StringTrimmerEditor stringTrimmerEditor = new StringTrimmerEditor(true);
+>
+>        // adding the string trimmer to manipulate the incoming request
+>        dataBinder.registerCustomEditor(String.class, stringTrimmerEditor);
 >    }
 > ```
 
