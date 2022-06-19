@@ -26,7 +26,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 > [Spring MVC Validation](#5.1)
 >> + [Overview and Setup](#5.2)
 >> + [Simple Validation](#5.3)
->> + [@InitBinder annotation](#5.4)
+>> + [@InitBinder annotation (Pre-Processor)](#5.4)
  
 ---
 
