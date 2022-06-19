@@ -25,6 +25,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 
 > [Spring MVC Validation](#5.1)
 >> + [Overview and Setup](#5.2)
+>> + [Simple Validation](#5.3)
  
 ---
 
@@ -425,4 +426,85 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 > 1. Download jar files of hibernate 6.2 from https://hibernate.org/validator/releases/6.2/
 > 2. Copied the three files in the dist directory and the ones in the lib>required to my lib directory in the project
 > 3. In my module settings for the project, set them as library files to reference in my project.
+> 4. Update the lib directory with the jar files we added under WEB-INF in artifacts under the project module settings. 
+
+---
+
+### Simple Validation <a id='5.3'></a>
+> To add validation rules to properties of a model you can follow these steps.
+>
+> **STEP 1:** <br>
+> + Add constraints to the field property in the target object class.
+> ```
+> import javax.validation.constraints.NotNull;
+> import javax.validation.constraints.Size;
+>
+> public class Customer {
+>  private String firstName;
+>  
+> @NotNull(message = "is required")
+> @Size(min = 1, message = "is required")
+> private String lastName;
+> ...
+> ```
+> 
+> **STEP 2:** <br>
+> + In the view, add the `<form:errors>` tag where the **path** attribute is the property in the model we are validating, and **cssClass** is the css class we will apply to the error if it gets displayed.
+> ```
+> <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+> <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+> <html>
+> <head>
+> 
+>     <title>Customer Blank Form</title>
+> 
+>     <style>
+>         .error {
+>             color:red;
+>         }
+>     </style>
+> 
+> </head>
+> <body>
+>     <h1>Customer Blank Form</h1>
+>  <form:form action="processForm" modelAttribute="customer">
+>       First name: <form:input path="firstName" />
+> 
+>       <br><br>
+> 
+>       Last name (*): <form:input path="lastName" />
+>       <form:errors path="lastName" cssClass="error"/>
+> 
+>       <br><br>
+> 
+>       <input type="submit" value="Submit"/>
+>   </form:form>
+> </body>
+> </html>
+> ```
+>
+> **STEP 3:** <br>
+> + In the controller method that is processing the form must have the following structure. 
+> + It will make use of the **@Valid** annotation to tell hibernate to validate it for us.
+> + The **BindingResult** object must be taken **AFTER the @ModelAttribute** in the arguments. Otherwise it will not work as expected. 
+> ```
+>    @RequestMapping("/processForm")
+>    public String processForm(
+>            @Valid @ModelAttribute("customer") Customer customer,
+>            BindingResult bindingResult) {
+>
+>        // check if the validator has any errors
+>        if(bindingResult.hasErrors()){
+>            return "customer_blankForm";
+>        }
+>        else{
+>            // print out logging message
+>            System.out.printf("The customer %s %s is getting processed\n", customer.getFirstName(), >customer.getLastName());
+>
+>            // redirect customer to the processed form
+>            return "customer_processedForm" ;
+>        }
+>    }
+> ```
+
 ---
