@@ -568,7 +568,21 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >            BindingResult bindingResult) {
 > ```
 
+---
 
+### Validating with regular expressions with @Pattern <a id='5.6'></a>
+> We can validate with regular expressions with the `@Pattern` annotation.
+>
+> **Adding the constraint in the Customer model class:** <br>
+> + Add the regular expression constraint to the property in the Customer model class.
+> ```
+> public class Customer {
+>    private String firstName;
+>
+>    @Pattern(regexp = "[a-zA-z0-9]{5}", message = "only 5 chars/digits")
+>    private  String postalCode;
+>    ...
+> ```
 
 
 ---
