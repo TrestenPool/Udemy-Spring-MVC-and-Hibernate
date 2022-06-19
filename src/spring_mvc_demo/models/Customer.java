@@ -3,6 +3,7 @@ package spring_mvc_demo.models;
 import javax.validation.constraints.*;
 
 public class Customer {
+    @NotNull(message = "is required")
     private String firstName;
 
     @NotNull(message = "is required")
@@ -13,9 +14,11 @@ public class Customer {
     @Size(min = 1, message = "is required")
     private String lastName;
 
+
+    @NotNull(message = "is required")
     @Min(value = 0, message = "Must be greater than or equal to zero")
     @Max(value = 10, message = "Must be less than or equal to 10")
-    private int freePasses;
+    private Integer freePasses;
 
 
 
@@ -40,11 +43,11 @@ public class Customer {
         this.lastName = lastName;
     }
 
-    public int getFreePasses() {
+    public Integer getFreePasses() {
         return freePasses;
     }
 
-    public void setFreePasses(int freePasses) {
+    public void setFreePasses(Integer freePasses) {
         this.freePasses = freePasses;
     }
 

@@ -7,23 +7,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8ad2f70-0976-4f6a-8a1a-ecb8895266bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/classmate_1_5_1.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/libraries/hibernate_validator_6_2_3_Final.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/classmate-1.5.1.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/hibernate-validator-6.2.3.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/hibernate-validator-annotation-processor-6.2.3.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/hibernate-validator-cdi-6.2.3.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jakarta.el-3.0.3.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jakarta.validation-api-2.0.2.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/lib/jboss-logging-3.4.1.Final.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/spring_mvc_demo/driver/CustomerForms.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/spring_mvc_demo/models/Customer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/customer_blankForm.jsp" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/web/WEB-INF/views/customer_processedForm.jsp" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/artifacts/spring_mvc_demo_Web_exploded.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/artifacts/spring_mvc_demo_Web_exploded.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/spring_mvc_demo.iml" beforeDir="false" afterPath="$PROJECT_DIR$/spring_mvc_demo.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/web/WEB-INF/views/main-menu.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/views/main-menu.jsp" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/spring_mvc_demo/models/Customer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/spring_mvc_demo/models/Customer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/web/WEB-INF/views/customer_blankForm.jsp" beforeDir="false" afterPath="$PROJECT_DIR$/web/WEB-INF/views/customer_blankForm.jsp" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -119,7 +105,7 @@
       <workItem from="1655140263202" duration="27789000" />
       <workItem from="1655397454951" duration="13034000" />
       <workItem from="1655486131492" duration="6436000" />
-      <workItem from="1655645497937" duration="6081000" />
+      <workItem from="1655645497937" duration="6447000" />
     </task>
     <servers />
   </component>
