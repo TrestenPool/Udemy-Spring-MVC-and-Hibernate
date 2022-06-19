@@ -28,6 +28,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [Simple Validation](#5.3)
 >> + [@InitBinder annotation (Pre-Processor)](#5.4)
 >> + [Validating number ranges (@Min and @Max)](#5.5)
+>> + [Validating with regular expressions](#5.7)
  
 ---
 
@@ -557,5 +558,17 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >       Number of free forms (must be between 0 and 10) <form:input path="freePasses"/>
 >       <form:errors path="freePasses" cssClass="error"/>
 > ```
+>
+> **STEP 3** <br>
+> + Use the `@Valid` annotation in the controller method for the route and also `BindingResult`.
+> ```
+>    @RequestMapping("/processForm")
+>    public String processForm(
+>            @Valid @ModelAttribute("customer") Customer customer,
+>            BindingResult bindingResult) {
+> ```
+
+
+
 
 ---
