@@ -27,7 +27,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [Overview and Setup](#5.2)
 >> + [Simple Validation](#5.3)
 >> + [@InitBinder annotation (Pre-Processor)](#5.4)
->> + [Validating number ranges](#5.5)
+>> + [Validating number ranges (@Min and @Max)](#5.5)
  
 ---
 
@@ -533,7 +533,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 
 ---
 
-### Validating number ranges <a id='5.5'></a>
+### Validating number ranges (@Min and @Max) <a id='5.5'></a>
 > We are going to try to validate the number that the user enters on a form we display. The form is going to accept any input from the user but we want spring to validate to make sure a number was passed and also that it is between 0 and 10.
 >
 > **STEP 1:** <br>
