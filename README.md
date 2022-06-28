@@ -1,6 +1,7 @@
 # Udemy Spring MVC Tutorial
 This repo is for referencing back on Spring topics learned in the spring tutorial I learned on https://www.udemy.com/course/spring-hibernate-tutorial/
 
+
 ## Index of Topics
 > [MVC Overview and Configuration](#1.1)
 >> + [MVC Overview](#1.2)
@@ -29,6 +30,8 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [@InitBinder annotation (Pre-Processor)](#5.4)
 >> + [Validating number ranges (@Min and @Max)](#5.5)
 >> + [Validating with regular expressions](#5.6)
+>> + [Creating Custom Validation](#5.7)
+>> + [Creating Custom Java Spring Annotation](#5.8)
  
 ---
 
@@ -584,5 +587,74 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >    ...
 > ```
 
-
 ---
+
+### Creating Custom Validation rules <a id='5.7'></a>
+> custom validation goes here
+
+### Creating Custom Java Spring Annotation <a id='5.8'></a>
+> We can create our own custom java spring annotation for validation. In this example we want the user to type the course code but it must have the begin with the letters "LUV"
+>
+> **Example:**
+> ```
+> @CourseCode(value="LUV", message="must start with LUV")
+> private String courseCode;
+> ```
+
+> **Steps:**
+> **1. Create @CourseCode annotation**
+> + `@interface` - Used to define a custom Spring annotation
+> + `@Constraint` - Helper class that contains bussiness rules / validation logic
+> + `@Target` - Tells spring basically where can we place this annotation (in this example, we can place this annotation on a method or a field)
+> + `@Retention` - Tells spring how long to retain in the java class file. (in this example, tells it to process at runtime)
+>> ```
+>> @Constraint(validatedBy = CourseCodeConstraintValidator.class)
+>> @Target( { ElementType.METHOD, ElementType.Field} )
+>> @Retention(RetentionPolicy.RUNTIME)
+>> public @interface CourseCode {
+>>    
+>>    // define default course code
+>>    public String value() default "LUV";
+>>    
+>>    // define default error message
+>>    public String message() default "must start with LUV";
+>>
+>>    // define default groups
+>>    public Class<?>[] groups() default {};
+>>
+>>    // define default payload
+>>    public Class<? extends Payload>[] payload() default {};
+>>    
+>>    ...
+>>}
+>> ```
+> 
+> **2. Create @CourseCodeConstraintValidator**
+> + `ConstraintValidator<CourseCode, String>` - The class must implement this interface with the annotation we have created above passed in for the java generics
+> + `initialize()` - The class will override the initialize method in order to set the coure prefix with the one that the user provided
+> + `isValid()` - Returns true if it is considered valid, and false otherwise
+> + `ConstraintValidatorContext` - Can be used to pass back additional error messages to the view
+>> ```
+>> public class CourseCodeConstraintValidator implements ConstraintValidator<CourseCode, String> {
+>>    private String coursePrefix;
+>>    
+>>    @Override 
+>>    public void initialize(CourseCode theCourseCode) {
+>>        this.coursePrefix = theCourseCode.value();
+>>    }
+>>    
+>>    @Override  
+>>    public boolean isValid(
+>>          String theCode, ConstraintValidatorContext theConstraintValidatorContext) {
+>>        boolean result;
+>>        if (theCode != null) {
+>>          result = theCode.startsWith(coursePrefix);
+>>        }
+>>        else {
+>>          result = true;
+>>        }
+>>        return result;
+>>    }
+>>    
+>> }
+>> ```
