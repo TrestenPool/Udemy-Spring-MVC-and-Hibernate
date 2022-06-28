@@ -601,7 +601,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 > private String courseCode;
 > ```
 
-> **Steps:**
+> **Steps:** <br>
 > **1. Create @CourseCode annotation**
 > + `@interface` - Used to define a custom Spring annotation
 > + `@Constraint` - Helper class that contains bussiness rules / validation logic
