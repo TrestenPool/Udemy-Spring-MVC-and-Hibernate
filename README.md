@@ -30,8 +30,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [@InitBinder annotation (Pre-Processor)](#5.4)
 >> + [Validating number ranges (@Min and @Max)](#5.5)
 >> + [Validating with regular expressions](#5.6)
->> + [Creating Custom Validation](#5.7)
->> + [Creating Custom Java Spring Annotation](#5.8)
+>> + [Creating Custom Java Spring Annotation](#5.7)
  
 ---
 
@@ -589,10 +588,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 
 ---
 
-### Creating Custom Validation rules <a id='5.7'></a>
-> custom validation goes here
-
-### Creating Custom Java Spring Annotation <a id='5.8'></a>
+### Creating Custom Java Spring Annotation <a id='5.7'></a>
 > We can create our own custom java spring annotation for validation. In this example we want the user to type the course code but it must have the begin with the letters "LUV"
 >
 > **Example:**
@@ -658,3 +654,5 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >>    
 >> }
 >> ```
+
+ ---
