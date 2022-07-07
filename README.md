@@ -31,6 +31,10 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [Validating number ranges (@Min and @Max)](#5.5)
 >> + [Validating with regular expressions](#5.6)
 >> + [Creating Custom Java Spring Annotation](#5.7)
+
+> [Hibernate](#6.1)
+>> + [Hibernate Overview and Setup](#6.2)
+>> + [Environment Setup](#6.3)
  
 ---
 
@@ -654,5 +658,26 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >>    
 >> }
 >> ```
+
+ ---
+
+## Hibernate <a id='6.1'></a>
+
+### Hibernate Overview and Setup <a id='6.2'></a>
+> Hibernate is a framework for persisting or saving java objects in a database. Hibernate is an ORM ( Object-to-Relational Mapping ). It minimizes the amount of JDBC code you have to develop
+> + www.hibernate.org
+> + HQL or Hibernate Query Language similiar to SQL and used to construct custom queries 
+> + Hibernate uses **JDBC** for all database communications
+---
+
+### Environment Setup <a id='6.3'></a>
+> I have use docker containers for mysql and a phpmyadmin in order to have a gui component to my database. <br>
+> I first pulled the latest images for the mysql and phpmyadmin images <br>
+>
+> Setting up the mysql docker container
+>> `docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -d mysql`
+
+> Setting up the phpmyadmin docker container and connecting to the mysql instance
+>> `docker run --name my-own-phpmyadmin -d --link mysql-container:db -p 8081:80 phpmyadmin`
 
  ---
