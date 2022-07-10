@@ -34,6 +34,9 @@
           <element id="file-copy" path="$PROJECT_DIR$/lib/spring-websocket-5.3.8.jar" />
           <element id="library" level="project" name="classmate-1.5.1" />
           <element id="library" level="project" name="hibernate-validator-6.2.3.Final" />
+          <element id="library" level="project" name="annotations-api" />
+          <element id="library" level="project" name="antlr-2.7.7" />
+          <element id="library" level="project" name="mysql-connector-java-8.0.28" />
         </element>
       </element>
       <element id="javaee-facet-resources" facet="spring_mvc_demo/web/Web" />

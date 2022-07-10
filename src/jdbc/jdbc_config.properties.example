@@ -1,0 +1,4 @@
+db.driver.class=com.mysql.jdbc.Driver
+db.conn.url=jdbc:mysql://<ip of mysql server>:3306/hb_student_tracker?useSSL=false&serverTimezone=UTC
+db.username=john
+db.password=password123

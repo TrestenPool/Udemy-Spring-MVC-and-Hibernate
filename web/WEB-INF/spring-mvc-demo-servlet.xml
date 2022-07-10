@@ -18,7 +18,7 @@
 	<mvc:annotation-driven/>
 
 	<!-- Location for the resources directory -->
-	<mvc:resources mapping="/resources/**" location="resources"></mvc:resources>
+<!--	<mvc:resources mapping="/resources/*" location=""></mvc:resources>-->
 
 	<!-- Step 5: Define Spring MVC view resolver -->
 	<bean

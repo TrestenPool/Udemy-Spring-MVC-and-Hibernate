@@ -20,16 +20,8 @@ public class CourseCodeConstraintValidator  implements ConstraintValidator<Cours
            return true;
         }
         else{
-            if(theCode.startsWith(this.coursePrefix)){
-                return true;
-            }
-            else{
-                return false;
-            }
+            return theCode.startsWith(this.coursePrefix);
         }
-
-
-
 
     }
 }

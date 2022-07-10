@@ -116,5 +116,7 @@
     <orderEntry type="library" exported="" name="annotations-api" level="project" />
     <orderEntry type="library" name="hibernate-validator-6.2.3.Final" level="project" />
     <orderEntry type="library" name="classmate-1.5.1" level="project" />
+    <orderEntry type="library" name="antlr-2.7.7" level="project" />
+    <orderEntry type="library" name="mysql-connector-java-8.0.28" level="project" />
   </component>
 </module>

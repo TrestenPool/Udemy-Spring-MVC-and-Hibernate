@@ -13,14 +13,14 @@
 <body>
     <h1>Main Menu</h1>
 
-    <a href="hello/showForm">Link to Hello form</a>
+    <a href="/spring/hello/showForm">Link to Hello form</a>
 
     <br>
 
-    <a href="student/showForm">Link to the Student forms</a>
+    <a href="/spring/student/showForm">Link to the Student forms</a>
 
     <br>
 
-    <a href="customer/showForm">Link to the Customer forms</a>
+    <a href="/spring/customer/showForm">Link to the Customer forms</a>
 </body>
 </html>
