@@ -35,7 +35,8 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 > [Hibernate](#6.1)
 >> + [Hibernate Overview and Setup](#6.2)
 >> + [Environment Setup](#6.3)
- 
+>> + [Testing our JDBC connection](#6.4)
+
 ---
 
 ### MVC Overview and Configuration <a id='1.1'></a>
@@ -671,13 +672,96 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 ---
 
 ### Environment Setup <a id='6.3'></a>
-> I have use docker containers for mysql and a phpmyadmin in order to have a gui component to my database. <br>
+> I have used docker containers for mysql and a phpmyadmin in order to have a gui component to my database. <br>
 > I first pulled the latest images for the mysql and phpmyadmin images <br>
 >
-> Setting up the mysql docker container
->> `docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -d mysql`
 
-> Setting up the phpmyadmin docker container and connecting to the mysql instance
+> **Installing Mysql and Phpmyadmin**
+> + Setting up the mysql docker container
+>> `docker run --name mysql-container -e MYSQL_ROOT_PASSWORD=root -d mysql`
+> + Setting up the phpmyadmin docker container and connecting to the mysql instance
 >> `docker run --name my-own-phpmyadmin -d --link mysql-container:db -p 8081:80 phpmyadmin`
 
+> **Installing the Hibernate files and the JDBC jar files** <br>
+> + First we have to download the hibernate library files from www.hibernate.org
+> + Then to download the JDBC jar files from https://downloads.mysql.com/archives/c-j/
+> + Setup as libary files in the project under the lib directory
+
  ---
+
+### Testing our JDBC connection <a id='6.4'></a>
+> First I have placed the credentials in a file called **jdbc_config.properties**. I have not added that to the repo but have included a **jdbc_config.properties.example** file that has the template for you to fill out your own credentials to your db.
+
+> jdbc_config.properties.example
+> ```
+> db.driver.class=com.mysql.jdbc.Driver
+> db.conn.url=jdbc:mysql://<ip of mysql server>:3306/hb_student_tracker?useSSL=false&serverTimezone=UTC
+> db.username=John
+> db.password=password123
+> ```
+
+> Once you have filled in the **jdbc_config.properties.example** and renamed it to **jdbc_config.properties** you may move onto the next step to make the connection to the db in a java program.
+
+> First we are setting the instanciating a Properties() object and use **try with resources** in order to load the properties object with Properties.load() by passing in a variable of type **FileReader** and passing in the location of the .properties file. Once we have a valid Properties object we can access any of the property values with **Property.getProperty()**. <br>
+> Once they property values have been retrieved, we can now attempt to connect to the mysql database. We use **DriverManager.getConnection(url, user, pass)** to establish a connection and it will return an object of type **Connection**. If there is any issue establishing the connection, it will throw a sql exception.
+>
+> **TestConnection.java**
+> ```
+>public class TestConnection {
+>    public static void main(String[] args) {
+>
+>        Properties properties = new Properties();
+>        String propertiesFile = "src/jdbc/jdbc_config.properties";
+>
+>        String url = "";
+>        String user = "";
+>        String pass = "";
+>
+>        // try with resources
+>        try ( FileReader fileReader = new FileReader(propertiesFile) ){
+>            properties.load(fileReader);
+>            url = properties.getProperty("db.conn.url");
+>            user = properties.getProperty("db.username");
+>            pass = properties.getProperty("db.password");
+>        } catch (Exception e){
+>            e.printStackTrace();
+>        }
+>
+>        // attempt to connect to the db
+>        Connection myConnection = connectToDb(url, user, pass);
+>
+>        // connection unsuccessful
+>        if(myConnection == null){
+>            System.out.println("Unable to connect to the db");
+>            return;
+>        }
+>
+>        // do stuff
+>        System.out.println("Connection successfull");
+>
+>        // close the resource
+>        try{
+>            myConnection.close();
+>        } catch (Exception e){
+>          e.printStackTrace();
+>        }
+>    }
+>
+>    public static Connection connectToDb(String url, String user, String pass){
+>        Connection myConn;
+>
+>        try {
+>            myConn = DriverManager.getConnection(url, user, pass);
+>        }
+>        catch (SQLException exception){
+>            return null;
+>        }
+>
+>        return myConn;
+>    }
+>
+>}
+>
+> ```
+
+---
