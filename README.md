@@ -874,6 +874,32 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> 2. Java annotations (Modern, preferred way)
 > We will cover the java annotations method since it is the preferred way of doing so.
 
+> **Student.java**
+> ```
+>import javax.persistence.Column;
+>import javax.persistence.Entity;
+>import javax.persistence.Id;
+>import javax.persistence.Table;
+>
+>@Entity
+>@Table(name = "student")
+>public class Student {
+>    @Id
+>    @Column(name = "id")
+>    private int id;
+>
+>    @Column(name = "first_name")
+>    private String firstName;
+>
+>    @Column(name = "last_name")
+>    private String lastName;
+>
+>    @Column(name = "email")
+>    private String email;
+>
+> ```
+
+> **Main.java**
 > ```
 >    public static void main(String[] args) {
 >
@@ -883,21 +909,9 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >                .addAnnotatedClass(Student.class) // adds the student class for hibernate to use
 >                .buildSessionFactory(); // builds the one sessionFactory for the application
 >
->        /**
->         * A session is used to get a physical connection to a db. It is lightweight and designed to
->         * be instantiated each time an interaction is needed with the db. Persistent objects are saved
->         * and retrieved through the Session object.
->         *
->         * There are 2 ways of opening up a session
->         * 1. getCurrentSession()
->         *  - Creates a new session if it doesn't exist. Otherwise will use the same session which is in current Hibernate context.
->         *  - You need to configure additional property. "hibernate.current_session_context_class" to call getCurrentSession() method, otherwise it will throw an exception
->         * 2. openSession()
->         *  - Creates a new session
->         *  - You need to explicitly flush and close session objects.
->         *  - You do not need to configure any property to call it
->         */
 >        Session session = factory.getCurrentSession();
+>        
+>        // using alternative way of opening a new session
 >        // Session session = factory.openSession();
 >
 >        try{
@@ -923,3 +937,14 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 ---
 
 ### Factory.getCurrentSession() vs Factory.openSession() <a id='6.8'></a>
+> A session is used to get a physical connection to a db. It is lightweight and designed to be instantiated each time an interaction is needed with the db. Persistent objects are saved and retrieved through the Session object.
+>
+> There are 2 ways of opening up a session
+> 1. **getCurrentSession()**
+>> + Creates a new session if it doesn't exist. Otherwise will use the same session which is in current Hibernate context.
+>> + You need to configure additional property. "hibernate.current_session_context_class" to call getCurrentSession() method, otherwise it will throw an exception
+> 2. **openSession()**
+>> + Creates a new session
+>> + You need to explicitly flush and close session objects.
+>> + You do not need to configure any property to call it
+
