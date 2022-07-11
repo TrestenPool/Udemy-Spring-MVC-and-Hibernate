@@ -39,6 +39,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [Hibernate Architecture](#6.5)
 >> + [Hibernate Configuration File](#6.6)
 >> + [Hibernate Mapping entities (annotation method)](#6.7)
+>> + [Factory.getCurrentSession() vs Factory.openSession()](#6.8)
 
 ---
 
@@ -788,7 +789,12 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 
 > #### **Session object**
 > + A Session is used to get a **physical connection with a database**. The Session object is lightweight and designed to be **instantiated each time an interaction is needed with the database**. Persistent objects are saved and retrieved through a Session object.
->+ The session objects should not be kept open for a long time because they are **not usually thread safe** and they should be created and destroyed them as needed.
+> + The session objects should not be kept open for a long time because they are **not usually thread safe** and they should be created and destroyed them as needed.
+>
+> An instance of a session may exist in one of the following 3 states: <br>
+>> 1. **Transient** - A new instance of a persistent class, which is not associated with a Session and has no representation in the database and no identifier value is considered transient by Hibernate.
+>> 2. **Persistent** - You can make a transient instance persistent by associating it with a Session. A persistent instance has a representation in the database, an identifier value and is associated with a Session.
+>> 3. **Detached** - Once we close the Hibernate Session, the persistent instance will become a detached instance.
 
 > #### **Transaction object**
 > + A Transaction represents a unit of work with the database and most of the RDBMS supports transaction functionality. Transactions in Hibernate are handled by an underlying transaction manager and transaction (from JDBC or JTA).
@@ -867,3 +873,44 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> 1. XML configuration (Legacy)
 >> 2. Java annotations (Modern, preferred way)
 > We will cover the java annotations method since it is the preferred way of doing so.
+
+> ```
+>    public static void main(String[] args) {
+>
+>        // sessionFactory object
+>        SessionFactory factory = new Configuration()
+>                .configure("hibernate.cfg.xml") // configuration for hibernate
+>                .addAnnotatedClass(Student.class) // adds the student class for hibernate to use
+>                .buildSessionFactory(); // builds the one sessionFactory for the application
+>
+>        /**
+>         * A session is used to get a physical connection to a db. It is lightweight and designed to
+>         * be instantiated each time an interaction is needed with the db. Persistent objects are saved
+>         * and retrieved through the Session object.
+>         *
+>         * There are 2 ways of opening up a session
+>         * 1. getCurrentSession()
+>         *  - Creates a new session if it doesn't exist. Otherwise will use the same session which is in current Hibernate context.
+>         *  - You need to configure additional property. "hibernate.current_session_context_class" to call getCurrentSession() method, otherwise it will throw an exception
+>         * 2. openSession()
+>         *  - Creates a new session
+>         *  - You need to explicitly flush and close session objects.
+>         *  - You do not need to configure any property to call it
+>         */
+>        Session session = factory.getCurrentSession();
+>        Session session = factory.openSession();
+>
+>        try{
+>            // now use the session object to save / retrieve Java objects ...
+>            System.out.println(session.toString());
+>        } finally {
+>            factory.close();
+>        }
+>
+>    }
+>
+> ```
+
+---
+
+### Factory.getCurrentSession() vs Factory.openSession() <a id='6.8'></a>
