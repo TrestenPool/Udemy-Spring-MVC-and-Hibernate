@@ -4,9 +4,7 @@ import java.io.File;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
-import java.sql.Connection;
-import java.sql.DriverManager;
-import java.sql.SQLException;
+import java.sql.*;
 import java.util.Properties;
 
 public class TestConnection {
@@ -38,8 +36,25 @@ public class TestConnection {
             return;
         }
 
-        // do stuff
+        // let the user know connection was good
         System.out.println("Connection successfull");
+
+        // do stuff
+        try{
+            Statement statement = myConnection.createStatement();
+            ResultSet resultSet = statement.executeQuery("SELECT * from student");
+
+            while(resultSet.next()){
+                System.out.printf("%d %s %s\n", resultSet.getInt("id"), resultSet.getString("first_name"), resultSet.getString("email"));
+            }
+        }
+        catch (Exception e){
+            e.printStackTrace();
+        }
+
+        System.out.println("complete");
+
+
 
         // close the resource
         try{
