@@ -36,6 +36,9 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [Hibernate Overview and Setup](#6.2)
 >> + [Environment Setup](#6.3)
 >> + [Testing our JDBC connection](#6.4)
+>> + [Hibernate Architecture](#6.5)
+>> + [Hibernate Configuration File](#6.6)
+>> + [Hibernate Mapping entities (annotation method)](#6.7)
 
 ---
 
@@ -669,6 +672,12 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 > + www.hibernate.org
 > + HQL or Hibernate Query Language similiar to SQL and used to construct custom queries 
 > + Hibernate uses **JDBC** for all database communications
+> + Hibernate takes care of mapping Java classes to database tables using XML files and without writing any line of code
+> + If there is change in the database or in any table, then you need to change the XML file properties only.
+> + Abstracts away the unfamiliar SQL types and provides a way to work around familiar Java Objects.
+> + Hibernate uses various existing Java APIs, like JDBC, Java Transaction API(JTA), and Java Naming and Directory Interface (JNDI). JDBC provides a rudimentary level of abstraction of functionality common to relational databases, allowing almost any database with a JDBC driver to be supported by Hibernate. JNDI and JTA allow Hibernate to be integrated with J2EE application servers.
+>> <img src="https://www.tutorialspoint.com/hibernate/images/hibernate_architecture.jpg"></img>
+
 ---
 
 ### Environment Setup <a id='6.3'></a>
@@ -700,10 +709,10 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 > db.password=password123
 > ```
 
-> Once you have filled in the **jdbc_config.properties.example** and renamed it to **jdbc_config.properties** you may move onto the next step to make the connection to the db in a java program.
+> Once you have filled in the <a href="https://github.com/TrestenPool/Udemy_Spring_MVC/blob/main/src/jdbc/jdbc_config.properties.example">**jdbc_config.properties.example**</a>  and renamed it to **jdbc_config.properties** you may move onto the next step to make the connection to the db in a java program.
 
 > First we are setting the instanciating a Properties() object and use **try with resources** in order to load the properties object with Properties.load() by passing in a variable of type **FileReader** and passing in the location of the .properties file. Once we have a valid Properties object we can access any of the property values with **Property.getProperty()**. <br>
-> Once they property values have been retrieved, we can now attempt to connect to the mysql database. We use **DriverManager.getConnection(url, user, pass)** to establish a connection and it will return an object of type **Connection**. If there is any issue establishing the connection, it will throw a sql exception.
+> Once they property values have been retrieved, we can now attempt to connect to the mysql database. We use **DriverManager.getConnection(url, user, pass)** to establish a connection and it will return an object of type **Connection**. If there is any issue establishing the connection, it will throw a SQLException.
 >
 > **TestConnection.java**
 > ```
@@ -765,3 +774,96 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 > ```
 
 ---
+
+### Hibernate Architecture <a id='6.5'></a>
+
+> #### **Configuration Object**
+> + The Configuration object is the **first Hibernate object** you create in any Hibernate application. It is usually **created only once** during application initialization. It represents a **configuration or properties file** required by the Hibernate.
+> + Provides 2 key components
+>> 1. Database connection - These files are **hibernate.properties** and **hibernate.cfg.xml**
+>> 2. Class Mapping Setup - This component creates the connection between **Java classes and database tables**.
+
+> #### **SessionFactory object**
+> + The SessionFactory is a **heavyweight object**; it is usually created during application start up and kept for later use. You would need **one SessionFactory object per database** using a separate configuration file. So, if you are using multiple databases, then you would have to create multiple SessionFactory objects
+
+> #### **Session object**
+> + A Session is used to get a **physical connection with a database**. The Session object is lightweight and designed to be **instantiated each time an interaction is needed with the database**. Persistent objects are saved and retrieved through a Session object.
+>+ The session objects should not be kept open for a long time because they are **not usually thread safe** and they should be created and destroyed them as needed.
+
+> #### **Transaction object**
+> + A Transaction represents a unit of work with the database and most of the RDBMS supports transaction functionality. Transactions in Hibernate are handled by an underlying transaction manager and transaction (from JDBC or JTA).
+> + This is an optional object and Hibernate applications may choose not to use this interface, instead managing transactions in their own application code.
+
+> #### **Query object**
+> + Query objects use SQL or Hibernate Query Language (HQL) string to retrieve data from the database and create objects. **A Query instance is used to bind query parameters**, limit the number of results returned by the query, and finally to execute the query.
+
+> #### **Criteria object**
+> + Criteria objects are used to create and **execute object oriented criteria queries** to retrieve objects.
+
+---
+
+### Hibernate Configuration File <a id='6.6'></a>
+> + Hibernate requires to know in advance — where to find the mapping information that defines how your **Java classes relate to the database tables**. Hibernate also requires a set of configuration settings related to database and other related parameters. All such information is usually supplied as a standard Java properties file called **hibernate.properties**, or as an XML file named **hibernate.cfg.xml**.
+> + Most of the properties take their default values and it is not required to specify them in the property file unless it is really required
+
+> **Property values needed when using a standalone database**
+>  Property | Description 
+>  --- | --- 
+>  hibernate.dialect | This property makes Hibernate generate the appropriate SQL for the chosen database.
+>  hibernate.connection.driver_class | The JDBC driver class.
+>  hibernate.connection.url | The JDBC URL to the database instance.
+>  hibernate.connection.username | database username
+>  hibernate.connection.password | database password
+>  hibernate.connection.pool_size | Limits the number of connections waiting in the Hibernate database connection pool.
+>  hibernate.connection.autocommit | Allows autocommit mode to be used for the JDBC connection.
+
+> **Property values needed if using a using a database with an app server and JNDI**
+> Property | Description
+> --- | ---
+> hibernate.connection.datasource | The JNDI name defined in the application server context, which you are using for the application.
+> hibernate.jndi.class | The InitialContext class for JNDI.
+> hibernate.jndi.<JNDIpropertyname> | Passes any JNDI property you like to the JNDI InitialContext.
+> hibernate.jndi.url | Provides the URL for JNDI.
+> hibernate.connection.username | username
+> hibernate.connection.passowrd | password
+
+> **hibernate.cfg.xml.example**
+> ```
+><!DOCTYPE hibernate-configuration PUBLIC
+>        "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+>        "http://www.hibernate.org/dtd/hibernate-configuration-3.0.dtd">
+>
+><hibernate-configuration>
+>
+>    <session-factory>
+>
+>        <!-- JDBC Database connection settings -->
+>        <property name="connection.driver_class">com.mysql.cj.jdbc.Driver</property>
+>        <property name="connection.url">jdbc:mysql://172.17.0.3:3306/hb_student_tracker?useSSL=false&amp;serverTimezone=UTC</property>
+>        <property name="connection.username">hbstudent</property>
+>        <property name="connection.password">hbstudent</property>
+>
+>        <!-- JDBC connection pool settings ... using built-in test pool -->
+>        <property name="connection.pool_size">1</property>
+>
+>        <!-- Select our SQL dialect -->
+>        <property name="dialect">org.hibernate.dialect.MySQLDialect</property>
+>
+>        <!-- Echo the SQL to stdout -->
+>        <property name="show_sql">true</property>
+>
+>		<!-- Set the current session context -->
+>		<property name="current_session_context_class">thread</property>
+> 
+>    </session-factory>
+>
+></hibernate-configuration>
+> ```
+
+---
+
+### Hibernate Mapping entities (annotation method) <a id='6.7'></a>
+> There are two ways of mapping entities in Hibernate.
+>> 1. XML configuration (Legacy)
+>> 2. Java annotations (Modern, preferred way)
+> We will cover the java annotations method since it is the preferred way of doing so.
