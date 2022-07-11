@@ -40,6 +40,7 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + [Hibernate Configuration File](#6.6)
 >> + [Hibernate Mapping entities (annotation method)](#6.7)
 >> + [Factory.getCurrentSession() vs Factory.openSession()](#6.8)
+>> + [Disabling logging in the console](#6.9)
 
 ---
 
@@ -948,3 +949,11 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >> + You need to explicitly flush and close session objects.
 >> + You do not need to configure any property to call it
 
+### Disabling logging in the console <a id='6.9'></a>
+> If we wanted to disable logging in the console, we have to add one line before we create the **SessionFactory** object in our application.
+
+> In the main method we will add the line below
+> `java.util.logging.Logger.getLogger("org.hibernate").setLevel(Level.OFF);` <br>
+> <a href="https://github.com/TrestenPool/Udemy-Spring-MVC-and-Hibernate/commit/1a8873fe3545af8482cbfa69a228a7ed8d6ed9b6#diff-f3fce802930b951aa8ff5c63d3fc2f4ff8f778bdbfbff4eb079c36d703d942c8">view changes in the commit</a>
+
+---
