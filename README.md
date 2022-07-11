@@ -1,4 +1,4 @@
-# Udemy Spring MVC Tutorial
+# Udemy Spring MVC and Hibernate Tutorial
 This repo is for referencing back on Spring topics learned in the spring tutorial I learned on https://www.udemy.com/course/spring-hibernate-tutorial/
 
 
