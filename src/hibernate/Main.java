@@ -6,6 +6,7 @@ import org.hibernate.SessionFactory;
 import org.hibernate.Transaction;
 import org.hibernate.cfg.Configuration;
 
+import java.util.Scanner;
 import java.util.logging.Level;
 
 public class Main {
@@ -24,8 +25,28 @@ public class Main {
 
         try{
             session.beginTransaction();
-            Student student = session.get(Student.class, 2);
-            System.out.println(student);
+
+            Scanner scanner = new Scanner(System.in);
+            System.out.print("Enter student first name: ");
+            String firstName = scanner.next();
+            System.out.print("Enter student last name: ");
+            String lastName = scanner.next();
+            String email = null;
+            try{
+                System.out.print("Enter student email: ");
+                email = scanner.next("[\\w\\d]+@\\w+\\.com");
+            } catch (Exception e){
+                System.out.println("You must enter in a valid email, exiting...");
+            }
+
+
+            // save the new student in the db
+            Student newStudent = new Student(firstName, lastName, email);
+            session.save(newStudent);
+
+            System.out.printf("New Student created with primary key of %d\n", newStudent.getId());
+            System.out.println(newStudent);
+
             session.getTransaction().commit();
         } finally {
             factory.close();

@@ -7,13 +7,8 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="a8ad2f70-0976-4f6a-8a1a-ecb8895266bd" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hibernate.cfg.xml.example" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hibernate/Main.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/hibernate/model/Student.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/jdbc/TestConnection.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/jdbc/TestConnection.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/hibernate/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/hibernate/Main.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -161,7 +156,7 @@
       <workItem from="1656081907142" duration="16363000" />
       <workItem from="1657141295361" duration="19426000" />
       <workItem from="1657501897037" duration="1594000" />
-      <workItem from="1657505393029" duration="5884000" />
+      <workItem from="1657505393029" duration="8646000" />
     </task>
     <task id="LOCAL-00001" summary="Hibernate setup and TestConnection.java added.">
       <created>1657470650176</created>
