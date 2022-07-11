@@ -898,11 +898,20 @@ This repo is for referencing back on Spring topics learned in the spring tutoria
 >         *  - You do not need to configure any property to call it
 >         */
 >        Session session = factory.getCurrentSession();
->        Session session = factory.openSession();
+>        // Session session = factory.openSession();
 >
 >        try{
->            // now use the session object to save / retrieve Java objects ...
->            System.out.println(session.toString());
+>            Student student = new Student("Pat", "Mackdonald", "pat@meter.com");
+>
+>            // start transaction
+>            session.beginTransaction();
+>
+>            // save the student object
+>            session.save(student);
+>
+>            // commit the transaction
+>            session.getTransaction().commit();
+>
 >        } finally {
 >            factory.close();
 >        }
